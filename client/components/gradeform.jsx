@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
-// import React from 'react';
+import React from 'react';
 
-// export default function GradeForm(props) {
+export default function GradeForm(props) {
+  return (
+    <div></div>
+  );
 
-// }
+}
