@@ -18,7 +18,6 @@ class App extends React.Component {
 
   componentDidUpdate() {
     console.log('componentDidUpdate');
-
   }
 
   getGrades() {
@@ -28,6 +27,7 @@ class App extends React.Component {
         this.setState({
           grades: data
         });
+        console.log(this.state.grades);
       })
       .catch(err => { console.log('Error: ', err); });
   }
