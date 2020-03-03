@@ -5,35 +5,61 @@ export default class GradeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newEntry: ''
+      value: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   handleChange(event) {
     this.setState({
-      newEntry: event.target.value
+      value: event.target.value
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log('handleSubmit: ', this.state.value);
+
     const newGrade = {
-      newEntry: this.state.newEntry
+      value: this.state.value
     };
     this.props.onSubmit(newGrade);
-    this.setState({ newEntry: '' });
+    this.setState({ value: '' });
   }
 
   render() {
     return (
       <div className="col-md">
-        <form>
+        <form onSubmit={this.handleSubmit}>
 
+          <div className="form-group input-group-prepend">
+            <span className="input-group-text">
+              <i className="fas fa-user"></i>
+            </span>
+            <input type="text" name="name" className="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm" placeholder="Name"/>
+          </div>
         </form>
+
+        <div className="form-group input-group-prepend">
+          <span className="input-group-text">
+            <i className="far fa-list-alt"></i>
+          </span>
+          <input type="text" name="course" className="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm" placeholder="Course"/>
+        </div>
+
+        <div className="form-group input-group-prepend">
+          <span className="input-group-text">
+            <i className="fas fa-graduation-cap"></i>
+          </span>
+
+          <input type="text" name="grade" className="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm" placeholder="Student Grade"/>
+
+        </div>
 
       </div>
     );
