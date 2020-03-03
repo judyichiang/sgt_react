@@ -10,6 +10,7 @@ class App extends React.Component {
       grades: []
     };
 
+    this.addGrade = this.addGrade.bind(this);
   }
 
   componentDidMount() {
@@ -36,12 +37,17 @@ class App extends React.Component {
     return total / num;
   }
 
+  addGrade(newGrade) {
+
+  }
+
   render() {
     this.getAverage();
     return (
       <div className="container">
         <Header text="Student Grade Table" text2="Average Grade " average={this.getAverage()}/>
         <GradeTable grades={this.state.grades}/>
+
       </div>
 
     );
