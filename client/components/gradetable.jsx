@@ -9,7 +9,7 @@ export default function GradeTable(props) {
   } else {
     return (
       <table className="table table-striped">
-        <thead>
+        <thead className="thead-dark">
           <tr>
             <th scope="col">Student Name</th>
             <th scope="col">Course</th>

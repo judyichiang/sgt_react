@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import Header from './header';
 import GradeTable from './gradetable';
@@ -22,13 +23,18 @@ class App extends React.Component {
         this.setState({
           grades: data
         });
-
+        console.log(this.state.grades);
+        const num = this.state.grades.length;
+        console.log(num);
+        let total = 0;
+        for (let i = 0; i < num; i++) {
+          total += this.state.grades[i].grade;
+        }
+        console.log(total);
+        const avg = total / num;
+        console.log(avg);
       })
       .catch(err => { console.error('Error: ', err); });
-  }
-
-  getAverageGrade() {
-
   }
 
   render() {
