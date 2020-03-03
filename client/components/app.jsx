@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 
 class App extends React.Component {
@@ -9,12 +10,27 @@ class App extends React.Component {
 
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     this.getGrades();
+    console.log('hey');
+    console.log(this.state.grades);
+  }
+
+  componentDidUpdate() {
+    console.log('yo');
+    console.log(this.state.grades);
   }
 
   getGrades() {
-
+    fetch('/api/grades')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          grades: data
+        });
+        // console.log(this.state.grades)
+      })
+      .catch(err => { console.log('Error: ', err); });
   }
 
   render() {
