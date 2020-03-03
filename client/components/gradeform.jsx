@@ -3,7 +3,12 @@ import React from 'react';
 
 export default function GradeForm(props) {
   return (
-    <div></div>
+    <div className="col-md">
+      <form>
+
+      </form>
+
+    </div>
   );
 
 }
