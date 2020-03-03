@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
+import Header from './header';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,12 +13,12 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getGrades();
-    console.log('hey');
+    console.log('componentDidMount');
     console.log(this.state.grades);
   }
 
   componentDidUpdate() {
-    console.log('yo');
+    console.log('componentDidUpdate');
     console.log(this.state.grades);
   }
 
@@ -28,19 +29,17 @@ class App extends React.Component {
         this.setState({
           grades: data
         });
-        // console.log(this.state.grades)
       })
       .catch(err => { console.log('Error: ', err); });
   }
 
   render() {
 
-    function Header(props) {
-      return <h1>Student Grade Table</h1>;
-    }
-
     return (
-      Header()
+      <div>
+        <Header text="Student Grade Table"/>
+      </div>
+
     );
   }
 }
