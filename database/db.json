@@ -2,14 +2,14 @@
   "grades": [
     {
       "id": 1,
-      "name": "Kyle Simpson",
-      "course": "JavaScript",
+      "name": "Tony Stark",
+      "course": "Artificial Intelligence",
       "grade": 100
     },
     {
       "id": 2,
-      "name": "Brendan Eich",
-      "course": "JavaScript",
+      "name": "Hal",
+      "course": "Machine Learning",
       "grade": 100
     },
     {
