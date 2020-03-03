@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import Header from './header';
 import GradeTable from './gradetable';
@@ -16,10 +15,6 @@ class App extends React.Component {
     this.getGrades();
   }
 
-  componentDidUpdate() {
-    console.log('componentDidUpdate');
-  }
-
   getGrades() {
     fetch('/api/grades')
       .then(res => res.json())
@@ -27,9 +22,9 @@ class App extends React.Component {
         this.setState({
           grades: data
         });
-        console.log(this.state.grades);
+
       })
-      .catch(err => { console.log('Error: ', err); });
+      .catch(err => { console.error('Error: ', err); });
   }
 
   getAverageGrade() {
