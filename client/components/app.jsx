@@ -32,6 +32,10 @@ class App extends React.Component {
       .catch(err => { console.log('Error: ', err); });
   }
 
+  getAverageGrade() {
+
+  }
+
   render() {
 
     return (

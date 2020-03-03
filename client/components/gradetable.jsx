@@ -8,7 +8,7 @@ export default function GradeTable(props) {
     );
   } else {
     return (
-      <table className="table">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col">Student Name</th>
