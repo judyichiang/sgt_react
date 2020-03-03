@@ -22,8 +22,9 @@ class App extends React.Component {
         this.setState({
           grades: data
         });
-      });
-    // .catch(err => { console.log('Error: ', err); });
+
+      })
+      .catch(err => { console.error('Error: ', err); });
   }
 
   render() {
