@@ -7,7 +7,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: []
+      grades: [],
+      average: null
     };
 
   }
@@ -23,21 +24,35 @@ class App extends React.Component {
         this.setState({
           grades: data
         });
-        console.log(this.state.grades);
-        const num = this.state.grades.length;
-        console.log(num);
-        let total = 0;
-        for (let i = 0; i < num; i++) {
-          total += this.state.grades[i].grade;
-        }
-        console.log(total);
-        const avg = total / num;
-        console.log(avg);
+        // console.log(this.state.grades);
+        // const num = this.state.grades.length;
+        // console.log(num);
+        // let total = 0;
+        // for (let i = 0; i < num; i++) {
+        //   total += this.state.grades[i].grade;
+        // }
+        // console.log(total);
+        // const avg = total / num;
+        // console.log(avg);
       })
       .catch(err => { console.error('Error: ', err); });
   }
 
+  getAverage() {
+    console.log(this.state.grades);
+    const num = this.state.grades.length;
+    console.log(num);
+    let total = 0;
+    for (let i = 0; i < num; i++) {
+      total += this.state.grades[i].grade;
+    }
+    console.log(total);
+    const avg = total / num;
+    console.log(avg);
+  }
+
   render() {
+    this.getAverage();
 
     return (
       <div className="container">
