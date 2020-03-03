@@ -1,4 +1,5 @@
 import React from 'react';
+import Grade from './grade';
 
 export default function GradeTable(props) {
   if (!props) {
@@ -16,6 +17,14 @@ export default function GradeTable(props) {
           </tr>
         </thead>
         <tbody>
+          {
+            props.grades.map(el => {
+              return <Grade
+                key={el.id}
+                grade={el}
+              />;
+            })
+          }
 
         </tbody>
       </table>
