@@ -21,9 +21,24 @@ class App extends React.Component {
   getGrades() {
     fetch('/api/grades')
       .then(res => res.json())
-      .then(data => {
+      .then(grades => {
         this.setState({
-          grades: data
+          grades
+        });
+      })
+      .catch(err => { console.error('Error: ', err); });
+  }
+
+  addGrade(newStudent) {
+    fetch('/api/grades', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newStudent)
+    })
+      .then(res => res.json())
+      .then(newStudent => {
+        this.setState({
+          grades: this.state.grades.concat(newStudent)
         });
       })
       .catch(err => { console.error('Error: ', err); });
@@ -33,24 +48,11 @@ class App extends React.Component {
     const num = this.state.grades.length;
     let total = 0;
     for (let i = 0; i < num; i++) {
-      total += this.state.grades[i].grade;
+      total += Number(this.state.grades[i].grade);
     }
-    return total / num;
-  }
-
-  addGrade(newGrade) {
-    fetch('/api/grades', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newGrade)
-    })
-      .then(res => res.json())
-      .then(newGrade => {
-        this.setState({
-          grades: this.state.grades.concet(newGrade)
-        });
-      })
-      .catch(err => { console.error('Error: ', err); });
+    console.log(total);
+    var average = total / num;
+    return average.toFixed(2);
   }
 
   render() {
@@ -60,7 +62,7 @@ class App extends React.Component {
         <Header text="Student Grade Table" text2="Average Grade " average={this.getAverage()} />
         <div className="row">
           <GradeTable grades={this.state.grades} />
-          <GradeForm />
+          <GradeForm onSubmit={this.addGrade} />
         </div>
 
       </div>
