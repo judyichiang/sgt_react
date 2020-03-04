@@ -1,28 +1,3 @@
 {
-  "grades": [
-    {
-      "id": 1,
-      "name": "Tony Stark",
-      "course": "Artificial Intelligence",
-      "grade": 100
-    },
-    {
-      "id": 2,
-      "name": "Hal",
-      "course": "Machine Learning",
-      "grade": 100
-    },
-    {
-      "id": 3,
-      "name": "Bruce Wayne",
-      "course": "Parenting",
-      "grade": 30
-    },
-    {
-      "name": "Loki",
-      "course": "Jurisprudence",
-      "grade": "100",
-      "id": 4
-    }
-  ]
+  "grades": []
 }

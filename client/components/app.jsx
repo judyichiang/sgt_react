@@ -56,13 +56,12 @@ class App extends React.Component {
 
   banished(deleteGrade) {
     fetch(`/api/grades/${deleteGrade}`, { method: 'DELETE' })
-      .then(deleteGrade => {
+      .then(() => {
         this.setState({
           grades: this.state.grades.filter(el => el.id !== deleteGrade)
         });
       })
       .catch(err => { console.error('Error: ', err); });
-    this.getGrades();
   }
 
   render() {
