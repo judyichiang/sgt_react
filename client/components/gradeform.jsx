@@ -5,29 +5,35 @@ export default class GradeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      name: '',
+      course: '',
+      grade: ''
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleCourseChange = this.handleCourseChange.bind(this);
+    this.handleGradeChange = this.handleCourseChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.handdleCancel = this.handleCancelChange.bind(this);
   }
 
-  handleChange(event) {
+  handleNameChange(event) {
     this.setState({
-      value: event.target.value
+      name: event.target.value
     });
   }
 
+  handleCourseChange(event) { }
+
+  handleGradeChange(event) { }
+
   handleSubmit(event) {
     event.preventDefault();
-    console.log('handleSubmit: ', this.state.value);
 
-    const newGrade = {
-      value: this.state.value
-    };
-    this.props.onSubmit(newGrade);
-    this.setState({ value: '' });
   }
+
+  handleCancel(event) {}
 
   render() {
     return (
@@ -39,7 +45,7 @@ export default class GradeForm extends React.Component {
               <i className="fas fa-user"></i>
             </span>
             <input type="text" name="name" className="form-control" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-sm" placeholder="Name"/>
+              aria-describedby="inputGroup-sizing-sm" placeholder="Name" value={this.state.name} />
           </div>
 
           <div className="form-group input-group-prepend">
@@ -47,7 +53,7 @@ export default class GradeForm extends React.Component {
               <i className="far fa-list-alt"></i>
             </span>
             <input type="text" name="course" className="form-control" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-sm" placeholder="Course"/>
+              aria-describedby="inputGroup-sizing-sm" placeholder="Course" value={this.state.course} />
           </div>
 
           <div className="form-group input-group-prepend">
@@ -56,10 +62,10 @@ export default class GradeForm extends React.Component {
             </span>
 
             <input type="text" name="grade" className="form-control" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-sm" placeholder="Student Grade"/>
+              aria-describedby="inputGroup-sizing-sm" placeholder="Student Grade" value={this.state.grade} />
           </div>
           <button type="reset" className="btn btn-outline-dark ml-2 float-md-right">Cancel</button>
-          <button type="submit" className="btn btn-success float-md-right">Add</button>
+          <button type="submit" className="btn btn-success float-md-right" value="Submit">Add</button>
         </form>
       </div>
     );
