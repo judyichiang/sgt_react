@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import Header from './header';
 import GradeTable from './gradetable';
@@ -12,6 +11,7 @@ class App extends React.Component {
     };
 
     this.addGrade = this.addGrade.bind(this);
+    this.banished = this.banished.bind(this);
   }
 
   componentDidMount() {
@@ -54,23 +54,25 @@ class App extends React.Component {
     return average.toFixed(2);
   }
 
-  banished(todoId) {
-    fetch(`/api/grades/${todoId}`, { method: 'DELETE' })
-      .then(res => res.json())
-      .then(res => {
-        console.log('Deleted', res.message);
-        return res;
+  banished(deleteGrade) {
+    fetch(`/api/grades/${deleteGrade}`, { method: 'DELETE' })
+      .then(deleteGrade => {
+        this.setState({
+          grades: this.state.grades.filter(el => el.id !== deleteGrade)
+        });
       })
       .catch(err => { console.error('Error: ', err); });
+    this.getGrades();
   }
 
   render() {
     this.getAverage();
+
     return (
       <div className="container">
         <Header text="Student Grade Table" text2="Average Grade " average={this.getAverage()} />
         <div className="row">
-          <GradeTable grades={this.state.grades} deleteGrade={this.banished}/>
+          <GradeTable grades={this.state.grades} deleteGrade={this.banished} />
           <GradeForm onSubmit={this.addGrade} />
         </div>
 
