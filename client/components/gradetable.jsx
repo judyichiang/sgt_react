@@ -8,26 +8,30 @@ export default function GradeTable(props) {
     );
   } else {
     return (
-      <table className="table table-striped">
-        <thead className="thead-dark">
-          <tr>
-            <th scope="col">Student Name</th>
-            <th scope="col">Course</th>
-            <th scope="col">Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            props.grades.map(el => {
-              return <Grade
-                key={el.id}
-                grade={el}
-              />;
-            })
-          }
+      <div className="col-8">
+        <table className="table table-striped">
+          <thead className="thead-dark">
+            <tr>
+              <th scope="col">Student Name</th>
+              <th scope="col">Course</th>
+              <th scope="col">Grade</th>
+              <th scope="col">Operation</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              props.grades.map(el => {
+                return <Grade
+                  key={el.id}
+                  grade={el}
+                />;
+              })
+            }
 
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+
     );
 
   }

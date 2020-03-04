@@ -16,7 +16,13 @@
       "id": 3,
       "name": "Bruce Wayne",
       "course": "Parenting",
-      "grade": 40
+      "grade": 30
+    },
+    {
+      "name": "Loki",
+      "course": "Jurisprudence",
+      "grade": "100",
+      "id": 4
     }
   ]
 }
