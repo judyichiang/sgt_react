@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import Header from './header';
 import GradeTable from './gradetable';
@@ -51,6 +52,16 @@ class App extends React.Component {
     }
     var average = total / num;
     return average.toFixed(2);
+  }
+
+  banished(todoId) {
+    fetch(`/api/grades/${todoId}`, { method: 'DELETE' })
+      .then(res => res.json())
+      .then(res => {
+        console.log('Deleted', res.message);
+        return res;
+      })
+      .catch(err => { console.error('Error: ', err); });
   }
 
   render() {
