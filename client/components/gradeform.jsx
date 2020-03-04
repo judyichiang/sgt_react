@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 
 export default class GradeForm extends React.Component {
@@ -43,7 +42,6 @@ export default class GradeForm extends React.Component {
       course: this.state.course,
       grade: this.state.grade
     };
-    console.log(newStudent);
     this.props.onSubmit(newStudent);
     this.handleCancel();
   }
