@@ -2,6 +2,7 @@ import React from 'react';
 import Grade from './grade';
 
 export default function GradeTable(props) {
+  const grades = props.grades;
   if (!props) {
     return (
       <h3>No grades recorded</h3>
@@ -24,6 +25,8 @@ export default function GradeTable(props) {
                 return <Grade
                   key={el.id}
                   grade={el}
+                  deleteGrade={props.deleteGrade}
+                  onChange={() => props.banished(grades.id)}
                 />;
               })
             }

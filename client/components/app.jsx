@@ -11,6 +11,7 @@ class App extends React.Component {
     };
 
     this.addGrade = this.addGrade.bind(this);
+    this.banished = this.banished.bind(this);
   }
 
   componentDidMount() {
@@ -53,13 +54,24 @@ class App extends React.Component {
     return average.toFixed(2);
   }
 
+  banished(deleteGrade) {
+    fetch(`/api/grades/${deleteGrade}`, { method: 'DELETE' })
+      .then(() => {
+        this.setState({
+          grades: this.state.grades.filter(el => el.id !== deleteGrade)
+        });
+      })
+      .catch(err => { console.error('Error: ', err); });
+  }
+
   render() {
     this.getAverage();
+
     return (
       <div className="container">
         <Header text="Student Grade Table" text2="Average Grade " average={this.getAverage()} />
         <div className="row">
-          <GradeTable grades={this.state.grades} />
+          <GradeTable grades={this.state.grades} deleteGrade={this.banished} />
           <GradeForm onSubmit={this.addGrade} />
         </div>
 
