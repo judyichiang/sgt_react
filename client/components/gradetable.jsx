@@ -24,6 +24,7 @@ export default function GradeTable(props) {
                 return <Grade
                   key={el.id}
                   grade={el}
+                  deleteGrade={props.deleteGrade}
                 />;
               })
             }
