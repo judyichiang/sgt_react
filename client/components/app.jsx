@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import Header from './header';
 import GradeTable from './gradetable';
@@ -50,7 +49,6 @@ class App extends React.Component {
     for (let i = 0; i < num; i++) {
       total += Number(this.state.grades[i].grade);
     }
-    console.log(total);
     var average = total / num;
     return average.toFixed(2);
   }
