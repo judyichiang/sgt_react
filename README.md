@@ -8,7 +8,7 @@ For this project, you will be building a single-page React application that comm
 
 ## Getting Started
 
-1. Fork this repository to your GitHub account and clone a directory on your local machine.
+1. Fork this repository to your GitHub account and clone into a directory on your local machine.
 1. Install all dependencies in `package.json` with NPM.
     ```bash
     npm install
